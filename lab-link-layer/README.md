@@ -303,8 +303,6 @@ $ cougarnet --disable-ipv6 --terminal=none scenario2.cfg
 You can also use the driver provided for
 [automated testing](#automated-testing).
 
-Now would be a good time to
-[save your work](../contrib/github-repo-mirror/README.md#commit-and-push-local-changes-to-private-repo).
 
 
 ## Part 2 - VLANs and Trunking
