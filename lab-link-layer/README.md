@@ -578,4 +578,4 @@ information.  More information can be found in the
 
 # Submission
 
-Upload your functional `switch.py` to the assignment page on LearningSuite.
+Upload your functional `switch.py` to Gradescope.
