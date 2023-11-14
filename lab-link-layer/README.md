@@ -265,9 +265,8 @@ bullet under which it is listed.  That is, it describes what is being tested.
 
 ## Part 1 - Link-Layer Forwarding and Learning
 
-Read Section 6.4.3 ("Link-Layer Switches") in the book, especially the
-sub-sections "Forwarding and Filtering" and "Self-Learning", and especially
-pages 492 and 493.
+Read Section 6.4.3 ("Link-Layer Switches") in the [book](https://qige.io/network/Kurose-7.pdf), especially the
+sub-sections "Forwarding and Filtering" and "Self-Learning".
 
 Then implement a basic switch in `switch.py` with the following functionality:
 
@@ -307,7 +306,7 @@ You can also use the driver provided for
 
 ## Part 2 - VLANs and Trunking
 
-Read Section 6.4.4 ("Virtual Local Area Networks (VLANs)") in the book.
+Read Section 6.4.4 ("Virtual Local Area Networks (VLANs)") in the [book](https://qige.io/network/Kurose-7.pdf).
 
 Now add implementation for VLANs and trunking according to the following:
 
