@@ -37,7 +37,14 @@ class Switch(BaseHost):
                     self._vlans[vlan_val] = []
                 self._vlans[vlan_val].append(myint)
                 self._intfs[myint] = vlan_val
-                
+
+    def create_dot1q(self, vlan):
+        frame = b''
+        frame += struct.pack("!H", 0x8100)
+        mask = 2**16 - 1
+        frame += struct.pack("!H", vlan & mask)
+
+        return frame                
         
 
     def _handle_frame(self, frame: bytes, intf: str) -> None:
@@ -52,17 +59,14 @@ class Switch(BaseHost):
 
         if dst in self._outgoing:
             if self._outgoing[dst] in self._trunks:
-                dot1q_info = b'\x51\x00' + struct.pack('!H', vlan)
-                frame = frame[:12] + dot1q_info + frame[12:]
-
+                frame = dst + src + self.create_dot1q(vlan) + frame[12:]
             self.send_frame(frame, self._outgoing[dst])
         else:                                                                         ##==> broadcast the frame
             for myint in self.physical_interfaces:
                 if intf != myint and \
                         (myint in self._trunks or self._intfs[myint] == vlan):
                     if myint in self._trunks:
-                        dot1q_info = b'\x51\x00' + struct.pack('!H', vlan)
-                        fr = frame[:12] + dot1q_info + frame[12:]
+                        fr = dst + src + self.create_dot1q(vlan) + frame[12:]
                     else:
                         fr = frame
 
